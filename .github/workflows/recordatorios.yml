@@ -1,0 +1,21 @@
+# Recordatorios en Vercel (u otro hosting sin proceso prendido): cada 10 minutos llama a /api/vuelta.
+# Para activarlo, en tu repo de GitHub → Settings → Secrets and variables → Actions, crea:
+#   AGENDA_URL   = https://tu-app.vercel.app   (sin / al final)
+#   CRON_SECRET  = el mismo valor que pusiste en las variables de Vercel
+# Sin esos dos secretos el trabajo no hace nada. Si tu agenda corre en un servidor prendido (Railway, VPS) no lo necesitas.
+name: Recordatorios de la agenda
+on:
+  schedule:
+    - cron: '*/10 * * * *'
+  workflow_dispatch:
+jobs:
+  vuelta:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Llamar a /api/vuelta
+        env:
+          AGENDA_URL: ${{ secrets.AGENDA_URL }}
+          CRON_SECRET: ${{ secrets.CRON_SECRET }}
+        run: |
+          if [ -z "$AGENDA_URL" ] || [ -z "$CRON_SECRET" ]; then echo "Sin AGENDA_URL o CRON_SECRET: no hago nada."; exit 0; fi
+          curl -fsS -X POST -H "Authorization: Bearer $CRON_SECRET" "$AGENDA_URL/api/vuelta"

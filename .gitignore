@@ -1,0 +1,13 @@
+node_modules/
+.next/
+out/
+next-env.d.ts
+*.tsbuildinfo
+# Tus datos y secretos nunca se suben
+.env
+.env.*
+!.env.example
+.datos/
+# Capturas de pruebas locales
+tests/e2e/capturas/
+.DS_Store

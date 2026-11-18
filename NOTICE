@@ -1,0 +1,13 @@
+Agenda
+Copyright 2026 Los autores de Agenda (arbrain.ai)
+
+Este producto incluye software desarrollado para Arbrain (https://arbrain.ai): la aplicación y agenda de llamadas
+con la que se agendaron las llamadas del programa fundador, separada como proyecto independiente.
+Se distribuye bajo la Licencia Apache, versión 2.0 (ver LICENSE).
+
+This product includes software developed for Arbrain (https://arbrain.ai).
+Licensed under the Apache License, Version 2.0 (see LICENSE).
+
+Incluye dependencias de terceros con sus propias licencias (ver package.json).
+"Arbrain" y su logo son marcas de su autor; la licencia no concede permiso para usarlas salvo para describir el
+origen del software (sección 6). Tu marca, tus textos y tu logo son tuyos.
